@@ -1,0 +1,88 @@
+{
+  "tabs": [
+    {
+      "id": 1,
+      "name": "Dashboard",
+      "type": "",
+      "icon": ["fab", "apple"],
+      "isOpen": false,
+      "path": "./dashboard"
+    },
+    {
+      "id": 2,
+      "name": "Trip View",
+      "type": "",
+      "icon": ["fab", "apple"],
+      "isOpen": false,
+      "path": "./trip-view"
+    },
+    {
+      "id": 3,
+      "name": "Vehicle View",
+      "type": "",
+      "icon": ["fab", "microsoft"],
+      "isOpen": false,
+      "path": "./vehicle-view"
+    }
+    ,{
+      "id": 4,
+      "name": "Configuration",
+      "type": "multiChild",
+      "path": "./tripConfiguration",
+      "subTabs": [
+        {
+          "name": "Trip Configuration",
+          "path": "./tripConfiguration"
+        },
+        {
+          "name": "subTab 2",
+          "path": "./tab1"
+        },
+        {
+          "name": "subTab 3",
+          "path": "./tab1"
+        }
+      ],
+      "icon": ["fab", "google"],
+      "isOpen": false
+    }
+    ,{
+      "id": 5,
+      "name": "Tab 3",
+      "type": "multiChild",
+      "icon": ["fab", "apple"],
+      "isOpen": false,
+      "path": "./dashboard",
+      "subTabs": [
+        {
+          "name": "subTab 4",
+          "path": "./dashboard"
+        },
+        {
+          "name": "subTab 5",
+          "path": "./dashboard"
+        },
+        {
+          "name": "subTab 6",
+          "path": "./dashboard"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Tab 4",
+      "type": "",
+      "icon": ["fab", "apple"],
+      "isOpen": false,
+      "path": "./dashboard"
+    },
+    {
+      "id": 7,
+      "name": "Tab 5",
+      "type": "",
+      "icon": ["fab", "apple"],
+      "isOpen": false,
+      "path": "./dashboard"
+    }
+  ]
+}

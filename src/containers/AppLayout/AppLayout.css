@@ -1,0 +1,19 @@
+.AppLayout{
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    text-align: center;
+    /* margin: 8px; */
+    font-family: Roboto, sans-serif
+}
+.mainBody {
+    position: relative;
+    height:100%;
+    display: flex;
+    flex-flow: row;
+  }
+  

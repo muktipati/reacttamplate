@@ -1,0 +1,71 @@
+.Scheme-container{
+    padding:10px;
+}
+.Scheme-details{
+    display: flex;
+}
+.Scheme-create{
+    width: 50%;
+    text-align: left;
+    padding: 0px 10px 0px 20px;
+}
+.Scheme-rules{
+    width: 50%;
+    text-align: left;
+}
+.Badge{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 8px ;
+}
+.RulesDiv{
+    background: #fff;
+    height: 100%;
+    min-height: 500px;
+}
+    
+
+.MarginTop10 {
+    margin-top: 10px;
+}
+
+.Trip-rules{
+    background: #ecf0f5;
+}
+.Modal-button{
+  
+    justify-content: space-between !important;
+}
+.Modal-title{
+    font-size:17px !important;
+}
+.Modal-body{
+    font-size: 14px;
+}
+/* .form-group{
+    margin-bottom: 15px;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+} */
