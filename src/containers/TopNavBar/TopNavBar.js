@@ -15,6 +15,7 @@ const style = () => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#dd3333',
+    alignItems: 'baseline'
   },
   companyLogoHolder: {
     width: 200,
@@ -44,7 +45,7 @@ class TopNavBar extends React.Component {
               : 'company-logo-closed',
           )} 
         >
-           <a href="/" className={classes.autotat}>{openSideDrawer?'AutoTAT':'ATAT'}</a>
+           <p  className={classes.autotat}>{openSideDrawer?'AutoTAT':'ATAT'}</p>
         </div>
         <div onClick={() => toggleSideNav()}>
           <img
@@ -56,6 +57,9 @@ class TopNavBar extends React.Component {
             alt=''
           />
           <i className="fa fa-star" style={{ height: 100, width: 100 }} />
+        </div>
+        <div class="form-group">
+          <input className="form-control" type="text" placeholder='Search...'/>
         </div>
       </div>
     );

@@ -1,20 +1,21 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles';
 import './Dashboard.css';
-//import { classes } from 'istanbul-lib-coverage';
+import Header from '../../components/UI/Header/Header';
+import Auxi from "../../hoc/Auxi/Auxi";
 
-// const styles= ()=>({
-//   dashboardContainer:{
-
-//   }
-// })
 
 class Dashboard extends React.Component{
   render(){
     //const {classes} = this.props
     return (
-      // <div className={classes.dashboardContainer}>This is Dashboard</div>
-      <div className='Dashboard'>This is Dashboard</div>
+      <Auxi>
+
+      <Header title='DashBoard' />
+     <div className='Dashboard-body'>
+     <button className='btn btn-danger'>Create DashBoard</button>
+     </div>
+      </Auxi>
     )
   }
 }

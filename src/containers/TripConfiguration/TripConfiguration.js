@@ -2,22 +2,29 @@ import React from 'react'
 import { withStyles } from 'material-ui/styles';
 import Header from '../../components/UI/Header/Header';
 import Auxi from '../../hoc/Auxi/Auxi';
+// import Input from '../../components/UI/Input/Input';
+// import Button from '../../components/UI/Button/Button';
 //import CreateScheme from '../../components/UI/Modal/CreateScheme';
 import Modal from 'react-bootstrap/Modal'
 import './TripConfiguration.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import FontIcon from '../common/FontIcon'
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 
 class TripConfiguration extends React.Component {
-
+    
     state = {
         schemeData: {
             metircs: '',
             description: 'Over speeding in a given time',
         },
         show: false,
-        tableData:false
+        tableData:false,
+        isBtnDisable:false
+       
     };
 
 
@@ -29,14 +36,20 @@ class TripConfiguration extends React.Component {
     }
 
     changeHandler = (event) => {
-        // let updatedScheme = {...this.state.schemeData}
-        // console.log("createSchemeHandler",this.state.schemeData)
+       
+        if(event.target.value === ''){
+           
+            this.setState({ isBtnDisable: false});
+        }else{
+            this.setState({ isBtnDisable: true });
+        }
+      
         let metircs = event.target.value
         this.setState(state => ({ schemeData: Object.assign({}, state.schemeData, { metircs: metircs }) }));
 
-
-
     }
+  
+   
     createSchemeHandler = () => {
         console.log("createSchemeHandler", this.state.schemeData)
         if(this.state.schemeData.metircs){
@@ -66,6 +79,9 @@ class TripConfiguration extends React.Component {
                     <td><span className="Badge">3</span></td>
 
                     {/* <td><i className="fa fa-pencil cursor-pointer"></i>&nbsp;&nbsp;&nbsp;&nbsp; <i className="fa fa-trash text-red"></i></td> */}
+                    {/* <td>  <FontIcon icon={'eye'}  /></td> */}
+                   
+                    <td> <FontIcon icon={faEye}/>&nbsp;&nbsp;&nbsp;&nbsp;<FontIcon icon={faTrashAlt} className='Red-color'/></td>
                 </tr>
             </tbody>
         </table>
@@ -87,7 +103,7 @@ class TripConfiguration extends React.Component {
                                 <div className="form-group">
                                     <input className="form-control" placeholder="Search Trip Scheme" type="search" />
                                 </div>
-                                <button className='btn btn-danger' onClick={this.handleShow}>Create Scheme</button>
+                                <button className='btn btn-danger' onClick={this.handleShow} >Create Scheme</button>
                                     {tableData}
                                 {/* <table className="table table-hover MarginTop10">
                                     <thead>
@@ -130,18 +146,20 @@ class TripConfiguration extends React.Component {
                                                 <td>1</td>
                                                 <td>Create Trip</td>
                                                 <td >Parses Body</td>
-                                                <td><i className="fa fa-eye cursor-pointer"  ></i>&nbsp;&nbsp;&nbsp;&nbsp; <i className="fa fa-trash text-red"></i></td>
+                                                
+                                                <td> <FontIcon icon={faEye}/>&nbsp;&nbsp;&nbsp;&nbsp;<FontIcon icon={faTrashAlt} className='Red-color'/></td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>End Trip</td>
                                                 <td>Set the row Id</td>
-                                                <td><i className="fa fa-eye cursor-pointer" ></i>&nbsp;&nbsp;&nbsp;&nbsp; <i className="fa fa-trash text-red"></i></td></tr>
+                                                <td> <FontIcon icon={faEye}/>&nbsp;&nbsp;&nbsp;&nbsp;<FontIcon icon={faTrashAlt} className='Red-color'/></td>
+                                            </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Send HA alert</td>
                                                 <td>Remove the line with offset</td>
-                                                <td><i className="fa fa-eye cursor-pointer" ></i>&nbsp;&nbsp;&nbsp;&nbsp; <i className="fa fa-trash text-red"></i></td>
+                                                <td> <FontIcon icon={faEye}/>&nbsp;&nbsp;&nbsp;&nbsp;<FontIcon icon={faTrashAlt} className='Red-color'/></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -160,12 +178,13 @@ class TripConfiguration extends React.Component {
                         <h4 className='Modal-body'>Scheme Name</h4>
                         <div className="form-group">
                             <input className="form-control" placeholder="Search Trip Scheme" type='text' onChange={(event) => this.changeHandler(event)} />
+                          
                         </div>
                     </Modal.Body>
                     <Modal.Footer className='Modal-button'>
                         {/* <div className='Modal-button'> */}
                         <button className='btn btn-outline-secondary btn-sm ' onClick={this.handleClose}>Close </button>
-                        <button className='btn btn-danger btn-sm ' type='submit' onClick={this.createSchemeHandler}>Create Scheme</button>
+                        <button className='btn btn-danger btn-sm ' type='submit' onClick={this.createSchemeHandler} disabled={!this.state.isBtnDisable}>Create Scheme</button>
                         {/* </div> */}
                     </Modal.Footer>
                 </Modal>

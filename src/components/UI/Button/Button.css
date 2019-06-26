@@ -1,0 +1,39 @@
+.Button {
+    cursor: default;
+    height: 38px;
+    line-height: 2.28571em;
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+    color: rgb(255, 255, 255) !important;
+    background:#dd3333;
+    border-radius: 3px;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px 8px;
+    text-decoration: none;
+    outline: none !important;
+    margin-top: 24px;
+}
+
+.Button:first-of-type {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.Success {
+    color: #5C9210;
+}
+
+.Danger {
+    color: #944317;
+}
+.Button:enable {
+    color: #ccc;
+    cursor: not-allowed;
+}
+.Button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    background: #ff000061;
+}

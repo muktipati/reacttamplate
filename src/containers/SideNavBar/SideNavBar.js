@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import { withStyles } from 'material-ui/styles';
 //import styles from '../../style/style.css';
@@ -23,7 +23,14 @@ const style = () => ({
     whiteSpace: 'nowrap',
     width: '100%',
     margin: '5px 0 0 0',
-    padding: 5,
+    //padding: 5,
+    "&:hover": {
+      backgroundColor: '#3b3c3d',
+    }
+  },
+  activeTab: {
+    borderLeft: '3px solid white',
+    color: 'white',
   },
   subTab: {
     display: 'flex',
@@ -36,6 +43,7 @@ const style = () => ({
     backgroundColor: '#2c3b41',
     width: '100%',
     overflow: 'hidden',
+  
   },
   tabHead: {
     display: 'flex',
@@ -46,6 +54,7 @@ const style = () => ({
     whiteSpace: 'nowrap',
     width: '100%',
     cursor: 'pointer',
+    zIndex:'9999'
   },
   tabHeading: {
     marginLeft: 10,
@@ -90,6 +99,39 @@ class SideNavBar extends React.Component {
     this.setState({
       tabset: Tabs,
       openSubTab: Array(Tabs.tabs.length)
+    })
+  }
+  componentDidMount() {
+    console.log("side", this.props.history.location.pathname)
+    const activePath = `.${this.props.history.location.pathname}`
+    this.setState({
+      ...this.state,
+      tabset: {
+        ...this.state.tabset,
+        tabs: this.state.tabset.tabs.map(itm => {
+          if (itm.path === activePath) {
+            itm.isActive = true
+          } else {
+
+            itm.isActive = false
+          }
+          return itm
+
+        }),
+      },
+      tabs: this.state.tabset.tabs.map(itm => {
+        if (itm.subTabs) {
+          itm.subTabs.map(item => {
+            if (item.path === activePath) {
+              item.isActive = true
+            } else {
+              item.isActive = false
+            }
+            return item
+          })
+        }
+
+      }),
     })
   }
   openTab(tabId) {
@@ -153,7 +195,34 @@ class SideNavBar extends React.Component {
           {this.state.tabset &&
             this.state.tabset.tabs.map((itr, i) => {
               return (
-                <div className={classes.tab}>
+                <div
+                  className={classnames(classes.tab, itr.isActive ? classes.activeTab : '')}
+                  onClick={itr.type === 'multiChild' ? () => this.openTab(itr.id) : () => {
+                    this.setState({
+                      ...this.state,
+                      tabset: {
+                        ...this.state.tabset,
+                        tabs: this.state.tabset.tabs.map(itm => {
+                          if (itm.id === itr.id) {
+                            itm.isActive = true
+                          }
+                          else {
+                            itm.isActive = false
+                          }
+                          if (itm.subTabs) {
+                            itm.subTabs.map(item => {
+                              item.isActive = false
+                              return item
+                            })
+                          }
+
+                          return itm
+                        }),
+                      }
+                    })
+                    history.push(itr.path)
+                  }}
+                >
                   <div
                     className={classes.tabHead}
                     onMouseOver={(e) => {
@@ -187,7 +256,6 @@ class SideNavBar extends React.Component {
                     <span
                       className={classnames(classes.tabHeading,
                         openSideDrawer ? 'fadeIn' : 'fadeOut')}
-                      onClick={itr.type === 'multiChild' ? () => this.openTab(itr.id) : () => history.push(itr.path)}
                     >
                       {itr.name}
                     </span>
@@ -200,12 +268,48 @@ class SideNavBar extends React.Component {
                   </div>
 
                   <div className={classnames(classes.subTab, (itr.isOpen && openSideDrawer) ? 'dropdown' : 'dropup')}>
-                    {itr.subTabs && itr.subTabs.length && itr.subTabs.map(stab => {
+                    {itr.isOpen && itr.subTabs && itr.subTabs.length && itr.subTabs.map(stab => {
                       return (
-                        <div className={classes.subTabName}
-                          onClick={() => history.push(stab.path)}
+                        <div className={classnames(classes.subTabName, stab.isActive ? classes.activeTab : '')}
+                          onClick={(e) => {
+
+                            this.setState({
+                              ...this.state,
+                              tabset: {
+                                ...this.state.tabset,
+                                tabs: this.state.tabset.tabs.map(itm => {
+                                  if (itm.subTabs) {
+                                    itm.subTabs.map(item => {
+                                      if (item.id === stab.id) {
+                                        item.isActive = true
+                                      } else {
+                                        item.isActive = false
+                                      }
+                                      return item
+                                    })
+                                  }
+                                  itm.isActive = false
+                                  return itm
+                                }),
+                              }
+                            })
+                            console.log("[[state aftre subtab selected]]", this.state)
+                            history.push(stab.path)
+                            e.stopPropagation()
+                          }}
+
                         >
+                          <div>
+                          <FontIcon
+                            icon={stab.icon}
+                            size={15}
+                          />
+                          <span style={{'marginLeft':'10px'}}>
                           {stab.name}
+                          </span>
+                          </div>
+                          {/* {stab.name} */}
+
                         </div>
                       )
                     })}

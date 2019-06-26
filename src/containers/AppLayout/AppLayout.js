@@ -11,9 +11,12 @@ import './AppLayout.css';
 import '../../style/style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faCheckSquare, faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faCheckSquare, faCoffee, faAngleDown);
+library.add(fas);
 
 // const style = () => ({
 //   applayout: {
@@ -39,6 +42,7 @@ class Applayout extends React.Component {
       openSideDrawer: true,
     };
   }
+  
   render() {
     const { children, history } = this.props;
     return (

@@ -1,0 +1,308 @@
+
+.loginWrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+img.loginBg{
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.logo{
+    width:170px;;
+}
+.loginTxt{
+    font-size:20px;
+    color:#f00;
+}
+.login{
+  padding:0;
+  display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 500px;
+    width: 400px;
+    margin: 0px 48px;
+}
+.loginSection{
+    margin: 48px 0px;
+}
+.loginDiv{
+    /* display: flex;
+    flex-direction: column;
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px;
+    box-sizing: border-box;
+    color: rgb(94, 108, 132);
+    margin: 0;
+    padding: 24px 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 3px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px;
+    box-sizing: border-box;
+    color: rgb(23, 43, 77);
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+    padding: 48px;
+}
+.loginLogo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 24px;
+    color: rgb(94, 108, 132);
+    font-size: 16px;
+}
+.mobileSection:first-child{
+    margin-top:0px;
+}
+.emailSection,.nameSection,.createPasswordSection,.confirmPasswordSection,.passwordSection{
+    margin-top: 24px;
+    transform-origin: 50% 0px;
+    transition-duration: 0s, 0.2s, 0.2s, 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.emailField,.passwordField,.mobileField,.accountNameField,.createPasswordField,.confirmPasswordField{
+    box-sizing: border-box;
+    color: inherit;
+    cursor: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    width: 100%;
+    background: transparent;
+    border-width: 0px;
+    outline: none;
+}
+.emailForm,.passwordForm,.mobileForm,.nameForm,.createPasswordForm,.confirmPasswordForm {
+    align-items: center;
+    background-color: #f9f7f8;
+    color: rgb(9, 30, 66);
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    max-width: 100%;
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style:solid;
+    overflow: hidden;
+    height:40px;
+    border-width: 1px;
+    padding: 6px;
+}
+.buttonSection {
+    margin-top: 24px;
+}
+.buttonField {
+    cursor: default;
+    height: 38px;
+    line-height: 2.28571em;
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+    color: rgb(255, 255, 255) !important;
+    background: #ff0000;
+    border-radius: 3px;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px 8px;
+    text-decoration: none;
+    outline: none !important;
+}
+.googleLogin {
+    margin-top: 16px;
+}
+span.googleOr{
+    color: #9E9E9E;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+}
+.googleButton {
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px 0px !important;
+    background: rgb(255, 255, 255) !important;
+    height:38px;
+    line-height: 38px;
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+    color: rgb(80, 95, 121) !important;
+    border-radius: 3px;
+    border-width: 0px;
+    margin-top: 16px;
+    padding: 0px 8px;
+    text-decoration: none;
+}
+.linkCreate{
+    color: rgb(107, 119, 140);
+    padding-top: 24px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    width:400px;
+}
+.linkCreate ul {
+    list-style: none;
+    padding:0;
+}
+.linkCreate li{
+    line-height: 30px;
+}
+.linkCreate a {
+    color:#fff;
+    text-decoration:underline;
+    font-size:13px;
+}
+.linkCreate a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.formErrors{
+    color:red;
+    padding:5px;
+}
+
+/*Forgot Password*/
+.resetEmailTxt {
+    color: rgb(107, 119, 140);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33333;
+    padding: 0px 0px 4px;
+}
+.resetPasswordCancel{
+    color: rgb(107, 119, 140);
+    padding-top: 24px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    width:400px;
+}
+.resetPasswordCancel ul {
+    list-style: none;
+    display:flex;
+    padding:0;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.resetPasswordCancel li{
+    line-height: 30px;
+}
+.resetPasswordCancel ul > li + li::before {
+    content: "•";
+    margin: 0px 8px;
+    color:#fff;
+}
+.resetPasswordCancel a {
+    color:#fff;
+    font-size:13px;
+}
+.resetPasswordCancel a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Sign Up*/
+.passwordStrength {
+    height: 2px;
+    margin-top: 5px;
+    position: relative;
+    background: rgb(223, 225, 230);
+}
+.passwordStrline {
+    bottom: 0px;
+    left: 19%;
+    position: absolute;
+    right: 19%;
+    top: 0px;
+    border-left: 5px solid rgb(255, 255, 255);
+    border-right: 5px solid rgb(255, 255, 255);
+}
+.passwordStrength::before {
+    bottom: 0px;
+    content: "";
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 0px;
+    background: rgb(223, 225, 230);
+    transition: all 0.2s ease-out 0s;
+}
+.passwordStrline::after {
+    bottom: 0px;
+    content: "";
+    left: 30%;
+    position: absolute;
+    right: 30%;
+    top: 0px;
+    border-left: 5px solid rgb(255, 255, 255);
+    border-right: 5px solid rgb(255, 255, 255);
+}
+.passwordIcon{
+    float: right;
+    position: relative;
+    width: 18px;
+    color:#0000008a;
+}
+.redirctloginlink{
+    color: rgb(107, 119, 140);
+    padding-top: 24px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    width:400px;
+}
+.redirctloginlink ul {
+    list-style: none;
+    display:flex;
+    padding:0;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.redirctloginlink li{
+    line-height: 30px;
+}
+.redirctloginlink a {
+    color:#fff;
+    font-size:13px;
+}
+.redirctloginlink a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/*OTP*/
+.resendOptLink span{
+    color:#ff0000;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.33333;
+    padding: 0px 0px 4px;
+    cursor: pointer;
+}
+.resendOtp{
+    margin:0;
+}
+.otpField{
+    box-sizing: border-box;
+    color: inherit;
+    cursor: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    width: 75%;
+    background: transparent;
+    border-width: 0px;
+    outline: none;
+}
+.errorMsg{
+    color:red;
+}

@@ -8,7 +8,11 @@ class FontIcon extends React.Component {
     const { icon, customClass, size, ...custom } = this.props;
   
     return (
-      <FontAwesomeIcon icon={icon} style={{ height: size, width: size }} {...custom}/>
+      <FontAwesomeIcon 
+        icon={icon} 
+        style={{ height: size, width: size }} 
+        className={customClass} 
+        {...custom}/>
     );
   }
 }
