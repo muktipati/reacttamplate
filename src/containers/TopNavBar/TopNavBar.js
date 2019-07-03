@@ -2,8 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 //import MenuIcon from 'material-ui-icons/Menu';
+import './TopNavBar.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MenuBar from '../../assets/image/baseline-menu-24px.svg';
+import FontIcon from '../../containers/common/FontIcon'
 //import styles from '../../style/style.css';
 
 const style = () => ({
@@ -12,24 +15,27 @@ const style = () => ({
     height: '60px',
     display: 'flex',
     flexFlow: 'row',
-    justifyContent: 'flex-start',
+    //justifyContent: 'flex-start',
+    //alignItems: 'center',
+    backgroundColor: 'white',
     alignItems: 'center',
-    backgroundColor: '#dd3333',
-    alignItems: 'baseline'
+    boxShadow: '0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important',
+    
+
   },
   companyLogoHolder: {
     width: 200,
     height: '100%',
-    backgroundColor: '#bf090',
+    backgroundColor: '#dd3333',
   },
-  autotat :{
+  autotat: {
     textDecoration: 'none',
-      display: 'block',
-      textAlign: 'center',
-      lineHeight: '57px',
-      fontSize: '20px',
-      color: 'white',
-      
+    display: 'block',
+    textAlign: 'center',
+    lineHeight: '57px',
+    fontSize: '20px',
+    color: 'white',
+
   }
 });
 class TopNavBar extends React.Component {
@@ -43,24 +49,53 @@ class TopNavBar extends React.Component {
             openSideDrawer
               ? 'company-logo-open'
               : 'company-logo-closed',
-          )} 
+          )}
         >
-           <p  className={classes.autotat}>{openSideDrawer?'AutoTAT':'ATAT'}</p>
+          <p className={classes.autotat}>{openSideDrawer ? 'autoTAT' : 'ATAT'}</p>
         </div>
-        <div onClick={() => toggleSideNav()}>
-          <img
-            className={classnames(
-             'menubar',
-              openSideDrawer ? 'rotate-right' : 'rotate-left',
-            )}
-            src={MenuBar}
-            alt=''
-          />
-          <i className="fa fa-star" style={{ height: 100, width: 100 }} />
+        <div className='manucontain'>
+          <div onClick={() => toggleSideNav()}>
+            <img
+              className={classnames(
+                'menubar',
+                openSideDrawer ? 'rotate-right' : 'rotate-left',
+              )}
+              src={MenuBar}
+              alt=''
+            />
+            {/* <i className="fa fa-star" style={{ height: 100, width: 100 }} /> */}
+          </div>
+          <div>
+            <div className="search">
+              <span className="fa fa-search"></span>
+              <input type="text" className="form-control" placeholder="search" />
+            </div>
+
+          </div>
+          <div className="flex-grow"/>
+          <div className="margin-right10">
+           <div className="padding10">
+               <FontIcon icon={'bell'}  size={20}/>
+               <span className="badgetop badge-header">3</span>
+           </div>
+           <div className='user-icon'>
+             <div className='user'>
+             <FontIcon icon={'user'}  size={20}/>
+             </div>
+           </div>
+           <div className='user-name'>
+            <p>Hi,John</p>
+            <FontIcon icon={'angle-down'} size={20}/>
+           </div>
+           <div className='seeting-icon'>
+           
+            <FontIcon icon={'cog'} size={20}/>
+           </div>
+           
+          </div>
         </div>
-        <div class="form-group">
-          <input className="form-control" type="text" placeholder='Search...'/>
-        </div>
+        
+
       </div>
     );
   }

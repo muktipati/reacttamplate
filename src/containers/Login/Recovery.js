@@ -7,11 +7,11 @@ import bgimg from '../../assets/image/loginbg.jpg';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
-class ForgotPassword extends Component{
+class Recovery extends Component{
     state = {
         // forgotpassword: ''
         loginForm: {
-            forgotpassword: {
+            email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -27,6 +27,61 @@ class ForgotPassword extends Component{
         },
         formIsValid: false,
     };
+    checkValidity(value, rules) {
+        let isValid = true;
+        if (!rules) {
+            return true;
+        }
+        
+        if (rules.required) {
+            isValid = value.trim() !== '' && isValid;
+        }
+
+        if (rules.minLength) {
+            isValid = value.length >= rules.minLength && isValid
+        }
+
+        if (rules.maxLength) {
+            isValid = value.length <= rules.maxLength && isValid
+        }
+
+        if (rules.isEmail) {
+            const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+         
+            // isValid = pattern.test(value) && isValid
+            // const pattern1 = /^\d+$/;
+            const pattern1 =   /^[0]?[789]\d{9}$/
+            isValid = (pattern1.test(value) && isValid) || (pattern.test(value) && isValid)
+            console.log("isValid",isValid)
+        }
+
+        if (rules.isNumeric) {
+            const pattern = /^\d+$/;
+            isValid = pattern.test(value) && isValid
+        }
+
+        return isValid;
+    }
+
+ inputChangedHandler = (event, inputIdentifier) => {
+        const updatedLoginForm = {
+            ...this.state.loginForm
+        };
+        const updatedFormElement = { 
+            ...updatedLoginForm[inputIdentifier]
+        };
+        updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedLoginForm[inputIdentifier] = updatedFormElement;
+        
+        let formIsValid = true;
+        for (let inputIdentifier in updatedLoginForm) {
+             formIsValid = updatedLoginForm[inputIdentifier].valid && formIsValid;
+            //formIsValid = updatedLoginForm[inputIdentifier].valid ;
+        }
+        this.setState({loginForm: updatedLoginForm, formIsValid});
+    }
 
     render(){
         const formElementsArray = [];
@@ -54,6 +109,7 @@ class ForgotPassword extends Component{
                 ))}
             </form>
         );
+
         return(
             <div className='loginWrapper'>
             <img src={bgimg} className='loginBg' alt="logo" />
@@ -64,9 +120,9 @@ class ForgotPassword extends Component{
                             <img src={logo} className='logo' alt="logo" />
                                 <div className='loginTxt'>Can't log in?</div>
                             </div>
-                            <div className='resetEmailTxt'>
-                                            <span>We'll send a recovery link to</span>
-                                        </div>
+                            <div className="resetEmailTxt">
+                                <span>We'll send a recovery link to</span>
+                            </div>
                             {form}
                             {/* <form className={classes.loginEmail} id="form-reset-password-email">
                                 <div className={classes.emailSection}>
@@ -88,12 +144,12 @@ class ForgotPassword extends Component{
                     <div className='resetPasswordCancel'>
                         <ul>
                             <li>
-                                <a id="resetPassword-email-cancel" href="#/login">
+                                <a id="resetPassword-email-cancel" href="/login">
                                     <span>Return to log in</span>
                                 </a>
                             </li>
                             <li>
-                                <a id="help" href="#/forgotpassword">
+                                <a id="help" href="/Recovery">
                                     <span>Help</span>
                                 </a>
                             </li>
@@ -105,4 +161,4 @@ class ForgotPassword extends Component{
         );
     }
 }
-export default ForgotPassword 
+export default Recovery 

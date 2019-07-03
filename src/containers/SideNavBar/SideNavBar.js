@@ -19,18 +19,18 @@ const style = () => ({
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'center',
-    fontFamily: 'roboto',
     whiteSpace: 'nowrap',
     width: '100%',
     margin: '5px 0 0 0',
     //padding: 5,
     "&:hover": {
-      backgroundColor: '#3b3c3d',
+      backgroundColor: '#4d5968',
     }
   },
   activeTab: {
-    borderLeft: '3px solid white',
-    color: 'white',
+    borderLeft: '1px solid #dd3333',
+    backgroundColor: '#4d5968',
+   
   },
   subTab: {
     display: 'flex',
@@ -38,7 +38,7 @@ const style = () => ({
     alignItems: 'flex-start',
     justifyContent: 'center',
     margin: '5px 0 0 0',
-    fontFamily: 'roboto',
+    
     whiteSpace: 'nowrap',
     backgroundColor: '#2c3b41',
     width: '100%',
@@ -50,7 +50,6 @@ const style = () => ({
     flexFlow: 'row',
     padding: '10px 10px 10px 24px',
     alignItems: 'center',
-    fontFamily: 'roboto',
     whiteSpace: 'nowrap',
     width: '100%',
     cursor: 'pointer',
@@ -63,10 +62,8 @@ const style = () => ({
     display: 'flex',
     flexFlow: 'column',
     alignItems: 'flex-start',
-    //padding: '10px 10px 10px 24px',
     justifyContent: 'center',
     margin: '5px 2px',
-    //backgroundColor: '#89daca',
     padding: '2px',
     width: '100%',
     cursor: 'pointer'
@@ -248,7 +245,7 @@ class SideNavBar extends React.Component {
                   >
                     <FontIcon
                       icon={itr.icon}
-                      size={20}
+                      size={18}
                       className={openSideDrawer ? 'fadeIn' : ""}
 
                     />
@@ -270,7 +267,8 @@ class SideNavBar extends React.Component {
                   <div className={classnames(classes.subTab, (itr.isOpen && openSideDrawer) ? 'dropdown' : 'dropup')}>
                     {itr.isOpen && itr.subTabs && itr.subTabs.length && itr.subTabs.map(stab => {
                       return (
-                        <div className={classnames(classes.subTabName, stab.isActive ? classes.activeTab : '')}
+                        // <div className={classnames(classes.subTabName, stab.isActive ? classes.activeTab : '')}
+                        <div className={classnames(classes.subTabName)}
                           onClick={(e) => {
 
                             this.setState({
@@ -302,7 +300,7 @@ class SideNavBar extends React.Component {
                           <div>
                           <FontIcon
                             icon={stab.icon}
-                            size={15}
+                            size={20}
                           />
                           <span style={{'marginLeft':'10px'}}>
                           {stab.name}

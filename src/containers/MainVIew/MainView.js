@@ -8,10 +8,11 @@ const style = () => ({
   mainView: {
     height: '100%',
     flex: 1,
-    background:'#ecf0f5',
-    fontFamily: "'Source Sans Pro','Helvetica Neue'",
+    background:'#f7f7f7',
+    marginTop: '2px',
     fontWeight:'400',
-    fontSize:'14px'
+    fontSize:'14px',
+    
   },
 });
 

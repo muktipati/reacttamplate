@@ -12,11 +12,22 @@ import '../../style/style.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { faCheckSquare, faCoffee, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+// import { far } from '@fortawesome/free-regular-svg-icons';
+import {
+   faCheckSquare, 
+  faCoffee, 
+  faAngleDown,
+  faBell,
+  faUser,
+  faCog,
+  faArrowRight,
+  faExclamationTriangle
+ } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCheckSquare, faCoffee, faAngleDown);
-library.add(fas);
+library.add(fab, faCheckSquare, faCoffee, faAngleDown,faArrowRight,faBell,faUser,faCog);
+library.add(fas,faExclamationTriangle);
+// library.add(far);
 
 // const style = () => ({
 //   applayout: {

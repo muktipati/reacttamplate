@@ -5,7 +5,7 @@ import './Header.css';
 
 const header = (props) =>(
     <Auxi>
-        <div className='Header'>{props.title}</div>
+        <p className='Header'>{props.title}</p>
     </Auxi>
 
 )

@@ -11,10 +11,11 @@ class Dashboard extends React.Component{
     return (
       <Auxi>
 
-      <Header title='DashBoard' />
+      <Header title='DASHBOARD' />
      <div className='Dashboard-body'>
      <button className='btn btn-danger'>Create DashBoard</button>
      </div>
+
       </Auxi>
     )
   }

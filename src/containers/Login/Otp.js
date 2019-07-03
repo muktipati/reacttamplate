@@ -7,6 +7,10 @@ import bgimg from '../../assets/image/loginbg.jpg';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
+
+
+
+
 class Otp extends Component{
     state = {
         // otp: ''

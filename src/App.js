@@ -10,7 +10,8 @@ import TripConfiguration from './containers/TripConfiguration/TripConfiguration'
 import VehicleRegScheme from './containers/VehicleRegScheme/VehicleRegScheme';
 import VehicleView from './containers/VehicleView/VehicleView';
 import Login from './containers/Login/Login';
-import ForgotPassword from './containers/Login/ForgotPassword';
+import Recovery from './containers/Login/Recovery';
+import ResetPassword from './containers/Login/ResetPassword'
 import Otp from './containers/Login/Otp';
 import SignUp from './containers/Login/SignUp'
 
@@ -110,10 +111,17 @@ class App extends Component {
             />
 
             <Route
-              path="/forgotPassword"
-              name="forgotPassword"
+              path="/recovery"
+              name="Recovery"
               render={props =>
-                <ForgotPassword {...props} history={history} />
+                <Recovery {...props} history={history} />
+              }
+            />
+            <Route
+              path="/resetPassword"
+              name="resetPassword"
+              render={props =>
+                <ResetPassword {...props} history={history} />
               }
             />
              <Route

@@ -1,11 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);
-
+/* @import url(https://fonts.googleapis.com/css?family=Roboto&display=swap); */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 * {
   box-sizing: border-box;
 }
+/* @font-face {
+  font-family: 'Interstate Regular comp';
+  font-style: normal;
+  font-weight: normal;
+
+  src: local('Interstate Regular comp'), url('../../src/assets/fonts/interstate-regular.woff') format('woff');
+  } */
+
 body {
-  /* overflow: hidden !important; */
+  /* / overflow: hidden !important; / */
   margin:auto;
+  font-weight:500;
+  font-size: 13px !important;
+  /* font-family: 'Interstate', sans-serif !important; */
+  font-family:'Open Sans','Sans-serif' ;
 }
 
 .side-nav-bar {
@@ -14,10 +26,10 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  background-color: #222d32;
+  background-color:#383d43;
   overflow: hidden;
-  color:#bcbfc4;
-  font-size:14px;
+  color:#ffffff;
+  font-size:13px;
 }
 
 .company-logo-closed {
@@ -78,9 +90,9 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  background-color: #222d32;
-  color:#bcbfc4;
-  font-size:14px;
+  background-color:#383d43;
+  color:#ffffff;
+  font-size:13px;
 }
 
 .side-nav-bar-closed {
@@ -136,8 +148,8 @@ body {
 }
 
 .menubar {
-  height: 40px;
-  width: 40px;
+  height: 24px;
+  width: 24px;
   margin: auto 15px;
 }
 .rotate-left {

@@ -7,7 +7,7 @@ import Auxi from '../../hoc/Auxi/Auxi';
 //import CreateScheme from '../../components/UI/Modal/CreateScheme';
 import Modal from 'react-bootstrap/Modal'
 import './TripConfiguration.css';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import FontIcon from '../common/FontIcon'
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -105,25 +105,7 @@ class TripConfiguration extends React.Component {
                                 </div>
                                 <button className='btn btn-danger' onClick={this.handleShow} >Create Scheme</button>
                                     {tableData}
-                                {/* <table className="table table-hover MarginTop10">
-                                    <thead>
-                                        <tr >
-                                            <td >Metircs</td>
-                                            <td>Description</td>
-                                            <td>Reference</td>
-                                            <td >Action</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>sdd</td>
-                                            <td>Over speeding in a given time</td>
-                                            <td><span className="Badge">3</span></td>
-
-                                             <td><i className="fa fa-pencil cursor-pointer"></i>&nbsp;&nbsp;&nbsp;&nbsp; <i className="fa fa-trash text-red"></i></td> 
-                                        </tr>
-                                    </tbody>
-                                </table> */}
+                               
 
                             </div>
                             <div className='Scheme-rules col-md-6'>
