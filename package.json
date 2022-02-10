@@ -24,7 +24,7 @@
     "lodash": "4.17.11",
     "material-ui": "1.0.0-beta.45",
     "material-ui-icons": "1.0.0-beta.5",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-app-polyfill": "^1.0.1",
